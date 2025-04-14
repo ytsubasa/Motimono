@@ -1,0 +1,721 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		571CBFAD9BBFA64194646BA4 /* Pods_Motimono_MotimonoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7481DE0E82EE89D010D5BB89 /* Pods_Motimono_MotimonoUITests.framework */; };
+		80BB814617F7F7B3BBAE4877 /* Pods_Motimono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73125D1E48FD5FDDE2DCF912 /* Pods_Motimono.framework */; };
+		B17504012F7B78A40F19C6E4 /* Pods_MotimonoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9BC0BA28FF903850C1CE6A /* Pods_MotimonoTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B96EBB182DAD1E1F00663724 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B96EBAFF2DAD1E1D00663724 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B96EBB062DAD1E1D00663724;
+			remoteInfo = Motimono;
+		};
+		B96EBB222DAD1E1F00663724 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B96EBAFF2DAD1E1D00663724 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B96EBB062DAD1E1D00663724;
+			remoteInfo = Motimono;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3439962700CDFAB7E0C3E67B /* Pods-Motimono.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Motimono.debug.xcconfig"; path = "Target Support Files/Pods-Motimono/Pods-Motimono.debug.xcconfig"; sourceTree = "<group>"; };
+		46AC90D22E9ECFFC3CECFA2B /* Pods-Motimono.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Motimono.release.xcconfig"; path = "Target Support Files/Pods-Motimono/Pods-Motimono.release.xcconfig"; sourceTree = "<group>"; };
+		51FF761BDF6E4B57BC26FC2D /* Pods-Motimono-MotimonoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Motimono-MotimonoUITests.debug.xcconfig"; path = "Target Support Files/Pods-Motimono-MotimonoUITests/Pods-Motimono-MotimonoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		73125D1E48FD5FDDE2DCF912 /* Pods_Motimono.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Motimono.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7481DE0E82EE89D010D5BB89 /* Pods_Motimono_MotimonoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Motimono_MotimonoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		79F9AF9A4B3A26CDE477AE3B /* Pods-MotimonoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotimonoTests.release.xcconfig"; path = "Target Support Files/Pods-MotimonoTests/Pods-MotimonoTests.release.xcconfig"; sourceTree = "<group>"; };
+		7D9BC0BA28FF903850C1CE6A /* Pods_MotimonoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MotimonoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B96EBB072DAD1E1D00663724 /* Motimono.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Motimono.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B96EBB172DAD1E1F00663724 /* MotimonoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MotimonoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B96EBB212DAD1E1F00663724 /* MotimonoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MotimonoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD70FFB1042D744E8FD8A74C /* Pods-MotimonoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotimonoTests.debug.xcconfig"; path = "Target Support Files/Pods-MotimonoTests/Pods-MotimonoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D6BAF7D8F8BF6B7E82B828D7 /* Pods-Motimono-MotimonoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Motimono-MotimonoUITests.release.xcconfig"; path = "Target Support Files/Pods-Motimono-MotimonoUITests/Pods-Motimono-MotimonoUITests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		B96EBB092DAD1E1D00663724 /* Motimono */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
+			path = Motimono;
+			sourceTree = "<group>";
+		};
+		B96EBB1A2DAD1E1F00663724 /* MotimonoTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
+			path = MotimonoTests;
+			sourceTree = "<group>";
+		};
+		B96EBB242DAD1E1F00663724 /* MotimonoUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
+			path = MotimonoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B96EBB042DAD1E1D00663724 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80BB814617F7F7B3BBAE4877 /* Pods_Motimono.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B96EBB142DAD1E1F00663724 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B17504012F7B78A40F19C6E4 /* Pods_MotimonoTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B96EBB1E2DAD1E1F00663724 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				571CBFAD9BBFA64194646BA4 /* Pods_Motimono_MotimonoUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5CD1BFA68477B2C91699BFBD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3439962700CDFAB7E0C3E67B /* Pods-Motimono.debug.xcconfig */,
+				46AC90D22E9ECFFC3CECFA2B /* Pods-Motimono.release.xcconfig */,
+				51FF761BDF6E4B57BC26FC2D /* Pods-Motimono-MotimonoUITests.debug.xcconfig */,
+				D6BAF7D8F8BF6B7E82B828D7 /* Pods-Motimono-MotimonoUITests.release.xcconfig */,
+				BD70FFB1042D744E8FD8A74C /* Pods-MotimonoTests.debug.xcconfig */,
+				79F9AF9A4B3A26CDE477AE3B /* Pods-MotimonoTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9654692D2BEE6797B52DE013 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				73125D1E48FD5FDDE2DCF912 /* Pods_Motimono.framework */,
+				7481DE0E82EE89D010D5BB89 /* Pods_Motimono_MotimonoUITests.framework */,
+				7D9BC0BA28FF903850C1CE6A /* Pods_MotimonoTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B96EBAFE2DAD1E1D00663724 = {
+			isa = PBXGroup;
+			children = (
+				B96EBB092DAD1E1D00663724 /* Motimono */,
+				B96EBB1A2DAD1E1F00663724 /* MotimonoTests */,
+				B96EBB242DAD1E1F00663724 /* MotimonoUITests */,
+				B96EBB082DAD1E1D00663724 /* Products */,
+				5CD1BFA68477B2C91699BFBD /* Pods */,
+				9654692D2BEE6797B52DE013 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B96EBB082DAD1E1D00663724 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B96EBB072DAD1E1D00663724 /* Motimono.app */,
+				B96EBB172DAD1E1F00663724 /* MotimonoTests.xctest */,
+				B96EBB212DAD1E1F00663724 /* MotimonoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B96EBB062DAD1E1D00663724 /* Motimono */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B96EBB2B2DAD1E1F00663724 /* Build configuration list for PBXNativeTarget "Motimono" */;
+			buildPhases = (
+				3B801F76B05DCACFCC6A9F6F /* [CP] Check Pods Manifest.lock */,
+				B96EBB032DAD1E1D00663724 /* Sources */,
+				B96EBB042DAD1E1D00663724 /* Frameworks */,
+				B96EBB052DAD1E1D00663724 /* Resources */,
+				1D906190063635BDC77ADA49 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				B96EBB092DAD1E1D00663724 /* Motimono */,
+			);
+			name = Motimono;
+			productName = Motimono;
+			productReference = B96EBB072DAD1E1D00663724 /* Motimono.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B96EBB162DAD1E1F00663724 /* MotimonoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B96EBB2E2DAD1E1F00663724 /* Build configuration list for PBXNativeTarget "MotimonoTests" */;
+			buildPhases = (
+				E6E9DEE5041C994AF1D36A0B /* [CP] Check Pods Manifest.lock */,
+				B96EBB132DAD1E1F00663724 /* Sources */,
+				B96EBB142DAD1E1F00663724 /* Frameworks */,
+				B96EBB152DAD1E1F00663724 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B96EBB192DAD1E1F00663724 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				B96EBB1A2DAD1E1F00663724 /* MotimonoTests */,
+			);
+			name = MotimonoTests;
+			productName = MotimonoTests;
+			productReference = B96EBB172DAD1E1F00663724 /* MotimonoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B96EBB202DAD1E1F00663724 /* MotimonoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B96EBB312DAD1E1F00663724 /* Build configuration list for PBXNativeTarget "MotimonoUITests" */;
+			buildPhases = (
+				B388D8E8401A43B776C3B5F1 /* [CP] Check Pods Manifest.lock */,
+				B96EBB1D2DAD1E1F00663724 /* Sources */,
+				B96EBB1E2DAD1E1F00663724 /* Frameworks */,
+				B96EBB1F2DAD1E1F00663724 /* Resources */,
+				4B99BAD40FF50D6A25726CD3 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B96EBB232DAD1E1F00663724 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				B96EBB242DAD1E1F00663724 /* MotimonoUITests */,
+			);
+			name = MotimonoUITests;
+			productName = MotimonoUITests;
+			productReference = B96EBB212DAD1E1F00663724 /* MotimonoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B96EBAFF2DAD1E1D00663724 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					B96EBB062DAD1E1D00663724 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					B96EBB162DAD1E1F00663724 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = B96EBB062DAD1E1D00663724;
+					};
+					B96EBB202DAD1E1F00663724 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = B96EBB062DAD1E1D00663724;
+					};
+				};
+			};
+			buildConfigurationList = B96EBB022DAD1E1D00663724 /* Build configuration list for PBXProject "Motimono" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B96EBAFE2DAD1E1D00663724;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = B96EBB082DAD1E1D00663724 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B96EBB062DAD1E1D00663724 /* Motimono */,
+				B96EBB162DAD1E1F00663724 /* MotimonoTests */,
+				B96EBB202DAD1E1F00663724 /* MotimonoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B96EBB052DAD1E1D00663724 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B96EBB152DAD1E1F00663724 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B96EBB1F2DAD1E1F00663724 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1D906190063635BDC77ADA49 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Motimono/Pods-Motimono-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Motimono/Pods-Motimono-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Motimono/Pods-Motimono-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3B801F76B05DCACFCC6A9F6F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Motimono-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B99BAD40FF50D6A25726CD3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Motimono-MotimonoUITests/Pods-Motimono-MotimonoUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Motimono-MotimonoUITests/Pods-Motimono-MotimonoUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Motimono-MotimonoUITests/Pods-Motimono-MotimonoUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B388D8E8401A43B776C3B5F1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Motimono-MotimonoUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6E9DEE5041C994AF1D36A0B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MotimonoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B96EBB032DAD1E1D00663724 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B96EBB132DAD1E1F00663724 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B96EBB1D2DAD1E1F00663724 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B96EBB192DAD1E1F00663724 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B96EBB062DAD1E1D00663724 /* Motimono */;
+			targetProxy = B96EBB182DAD1E1F00663724 /* PBXContainerItemProxy */;
+		};
+		B96EBB232DAD1E1F00663724 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B96EBB062DAD1E1D00663724 /* Motimono */;
+			targetProxy = B96EBB222DAD1E1F00663724 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		B96EBB292DAD1E1F00663724 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B96EBB2A2DAD1E1F00663724 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B96EBB2C2DAD1E1F00663724 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3439962700CDFAB7E0C3E67B /* Pods-Motimono.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Motimono/Preview Content\"";
+				DEVELOPMENT_TEAM = R4TS3KWL5W;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Tsubasa-Yoshida.Motimono";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B96EBB2D2DAD1E1F00663724 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46AC90D22E9ECFFC3CECFA2B /* Pods-Motimono.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Motimono/Preview Content\"";
+				DEVELOPMENT_TEAM = R4TS3KWL5W;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Tsubasa-Yoshida.Motimono";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B96EBB2F2DAD1E1F00663724 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD70FFB1042D744E8FD8A74C /* Pods-MotimonoTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R4TS3KWL5W;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Tsubasa-Yoshida.MotimonoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Motimono.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Motimono";
+			};
+			name = Debug;
+		};
+		B96EBB302DAD1E1F00663724 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79F9AF9A4B3A26CDE477AE3B /* Pods-MotimonoTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R4TS3KWL5W;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Tsubasa-Yoshida.MotimonoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Motimono.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Motimono";
+			};
+			name = Release;
+		};
+		B96EBB322DAD1E1F00663724 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51FF761BDF6E4B57BC26FC2D /* Pods-Motimono-MotimonoUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R4TS3KWL5W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Tsubasa-Yoshida.MotimonoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Motimono;
+			};
+			name = Debug;
+		};
+		B96EBB332DAD1E1F00663724 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6BAF7D8F8BF6B7E82B828D7 /* Pods-Motimono-MotimonoUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R4TS3KWL5W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Tsubasa-Yoshida.MotimonoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Motimono;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B96EBB022DAD1E1D00663724 /* Build configuration list for PBXProject "Motimono" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B96EBB292DAD1E1F00663724 /* Debug */,
+				B96EBB2A2DAD1E1F00663724 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B96EBB2B2DAD1E1F00663724 /* Build configuration list for PBXNativeTarget "Motimono" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B96EBB2C2DAD1E1F00663724 /* Debug */,
+				B96EBB2D2DAD1E1F00663724 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B96EBB2E2DAD1E1F00663724 /* Build configuration list for PBXNativeTarget "MotimonoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B96EBB2F2DAD1E1F00663724 /* Debug */,
+				B96EBB302DAD1E1F00663724 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B96EBB312DAD1E1F00663724 /* Build configuration list for PBXNativeTarget "MotimonoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B96EBB322DAD1E1F00663724 /* Debug */,
+				B96EBB332DAD1E1F00663724 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B96EBAFF2DAD1E1D00663724 /* Project object */;
+}
