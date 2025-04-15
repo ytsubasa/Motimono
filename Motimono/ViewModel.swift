@@ -17,6 +17,42 @@ class ViewModel: ObservableObject {
     
     
     
+    init() {
+            let config = Realm.Configuration(
+                schemaVersion: 1,
+                migrationBlock: { migration, oldSchemaVersion in
+                    if oldSchemaVersion < 1 {
+                        // マイグレーション処理があればここに
+                    }
+                }
+            )
+            Realm.Configuration.defaultConfiguration = config
+
+            fetchBelongingsSituations()
+        }
+    
+    
+    
+    
+    // MARK: - フェッチ処理
+    
+    
+    func fetchBelongingsSituations() {
+          do {
+              let realm = try Realm()
+              let results = realm.objects(BelongingsSituation.self).sorted(byKeyPath: "order", ascending: true)
+              belongingsSiuations = Array(results)
+          } catch {
+              print("フェッチ失敗: \(error.localizedDescription)")
+              belongingsSiuations = []
+          }
+      }
+
+    
+    
+    
+    
+    
     // MARK: - 追加ビュー処理
     
     
@@ -90,7 +126,8 @@ class ViewModel: ObservableObject {
         s2.lastCompletedAt = Date() // 今日
         s2.order = 1
 
-        belongingsSiuations = [s1, s2]
+        belongingsSiuations.append(s1)
+        belongingsSiuations.append(s2)
     }
 
     

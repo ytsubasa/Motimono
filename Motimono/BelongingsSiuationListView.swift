@@ -82,7 +82,7 @@ struct BelongingsSiuationListView: View {
         }
         .sheet(isPresented: $viewModel.isPresentingAddView) {
             BelongingsSiuationAddView()
-                .presentationDetents([.fraction(0.3)])
+                .presentationDetents([.fraction(0.2)])
                 .presentationDragIndicator(.visible)
             
         }
