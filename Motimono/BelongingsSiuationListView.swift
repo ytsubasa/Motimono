@@ -18,7 +18,7 @@ struct BelongingsSiuationListView: View {
                     .ignoresSafeArea()
 
                 List {
-                    ForEach(viewModel.belongingsSiuations, id: \.id) { situation in
+                    ForEach(Array(viewModel.belongingsSiuations.enumerated()), id: \.element.id) { index, situation in
                         NavigationLink {
                           
                             BelongingsSituationDetailView(situation: situation)
@@ -30,18 +30,22 @@ struct BelongingsSiuationListView: View {
                                 totalCount: situation.ListBelongings.count,
                                 lastCompletedAt: situation.lastCompletedAt
                             )
-                          
+                            .opacity(viewModel.hasAppeared ? 1 : 0)
+                            .offset(y: viewModel.hasAppeared ? 0 : 30)
+                            .animation(.spring().delay(Double(index) * 0.07), value: viewModel.hasAppeared)
+                            
                         }
+                     
                       
                         .listRowSeparator(.hidden)
                         .listRowInsets(EdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 8))
                         .swipeActions(edge: .trailing) {
-                            Button("削除") {
+                            Button("削除",systemImage: "trash") {
                                 // 編集処理（モーダル表示・画面遷移など）
                             }
                             .tint(.red)
                             
-                            Button("編集") {
+                            Button("編集",systemImage: "pencil") {
                                 // 編集処理（モーダル表示・画面遷移など）
                             }
                             .tint(.blue)
@@ -83,12 +87,15 @@ struct BelongingsSiuationListView: View {
         }
         .onAppear{
             
-            viewModel.loadMockData()
+            DispatchQueue.main.async {
+                   viewModel.hasAppeared = true
+               }
         }
         .sheet(isPresented: $viewModel.isPresentingSituationAddView) {
             BelongingsSiuationAddView()
                 .presentationDetents([.fraction(0.2)])
                 .presentationDragIndicator(.visible)
+                .presentationCornerRadius(30)
             
         }
     }

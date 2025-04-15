@@ -11,6 +11,9 @@ import RealmSwift
 
 
 class ViewModel: ObservableObject {
+    
+    @Published var hasAppeared = false
+
    
     
     @Published var belongingsSiuations : [BelongingsSituation] = []

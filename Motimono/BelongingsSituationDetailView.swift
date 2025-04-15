@@ -61,12 +61,12 @@ struct BelongingsSituationDetailView: View {
                                     Text(item.name)
                                 }
                                 .swipeActions(edge: .trailing) {
-                                    Button("削除") {
+                                    Button("削除",systemImage: "trash") {
                                         // 編集処理（モーダル表示・画面遷移など）
                                     }
                                     .tint(.red)
                                     
-                                    Button("編集") {
+                                    Button("編集",systemImage: "pencil") {
                                         // 編集処理（モーダル表示・画面遷移など）
                                     }
                                     .tint(.blue)
@@ -123,6 +123,7 @@ struct BelongingsSituationDetailView: View {
             BelongingsAddView(situation:self.situation)
                 .presentationDetents([.fraction(0.2)])
                 .presentationDragIndicator(.visible)
+                .presentationCornerRadius(30)
             
         }
     }
