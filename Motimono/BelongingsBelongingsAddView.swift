@@ -1,15 +1,16 @@
 //
-//  BelongingsSiuationAddView.swift
+//  BelongingsBelongingsAddView.swift
 //  Motimono
 //
 //  Created by 吉田翔 on 2025/04/15.
 //
-
 import Foundation
 import SwiftUI
 
-struct BelongingsSiuationAddView: View {
+struct BelongingsAddView: View {
     @EnvironmentObject var viewModel: ViewModel
+    
+    let situation: BelongingsSituation
 
     @State private var newText: String = ""
     @FocusState private var isFocused: Bool
@@ -17,7 +18,7 @@ struct BelongingsSiuationAddView: View {
     var body: some View {
         VStack(spacing: 20) {
             // 角丸付きテキストフィールド
-            TextField("タイトルを入力", text: $newText)
+            TextField("持ち物を入力", text: $newText)
                 .padding()
                 .background(Color(.systemGray6))
                 .cornerRadius(12)
@@ -28,9 +29,9 @@ struct BelongingsSiuationAddView: View {
 
             Button(action: {
                 guard !newText.trimmingCharacters(in: .whitespaces).isEmpty else { return }
-                  viewModel.addBelongingsSituation(title: newText)
+                viewModel.addBelonging(to: situation, name: newText)
                   newText = ""
-                  viewModel.isPresentingSituationAddView = false
+                  viewModel.isPresentingBelongingsAddView = false
             }) {
                 Text("追加")
                     .font(.headline)

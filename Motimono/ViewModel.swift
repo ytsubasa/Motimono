@@ -53,15 +53,16 @@ class ViewModel: ObservableObject {
     
     
     
-    // MARK: - 追加ビュー処理
+    // MARK: - 持ち物状況追加ビュー処理
     
     
-    @Published var isPresentingAddView: Bool = false
+    @Published var isPresentingSituationAddView: Bool = false
     
     
     
+    // MARK: - 状況追加処理
     
-    // MARK: - 追加処理
+    
     
     func addBelongingsSituation(title: String) {
         let newSituation = BelongingsSituation()
@@ -83,6 +84,37 @@ class ViewModel: ObservableObject {
             print("追加失敗: \(error.localizedDescription)")
         }
     }
+    
+    
+    // MARK: - 持ち物追加ビュー処理
+    
+    
+    @Published var isPresentingBelongingsAddView: Bool = false
+    
+    
+    
+    // MARK: - 持ち物追加処理
+    
+    
+    func addBelonging(to situation: BelongingsSituation, name: String) {
+        let newBelonging = Belongings()
+        newBelonging.name = name
+        newBelonging.order = situation.ListBelongings.count
+
+        do {
+            let realm = try Realm()
+            try realm.write {
+                situation.ListBelongings.append(newBelonging)
+            }
+        } catch {
+            print("持ち物の追加に失敗: \(error.localizedDescription)")
+        }
+    }
+
+    
+    
+
+
     
     
     

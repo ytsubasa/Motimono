@@ -11,6 +11,10 @@ import RealmSwift
 
 
 struct BelongingsSituationDetailView: View {
+    
+    @EnvironmentObject var viewModel: ViewModel
+    
+    
     let situation: BelongingsSituation
     
     
@@ -81,6 +85,27 @@ struct BelongingsSituationDetailView: View {
                
                     
                     
+                    VStack {
+                        Spacer()
+                        HStack {
+                            Spacer()
+                            Button(action: {
+                                viewModel.isPresentingBelongingsAddView = true
+                            }) {
+                                Image(systemName: "plus")
+                                    .font(.system(size: 24, weight: .bold))
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .background(Color.black.opacity(0.5))
+                                    .clipShape(Circle())
+                                    .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 3)
+                            }
+                            .padding(.bottom, 20)
+                            .padding(.trailing, 20)
+                        }
+                    }
+                    .ignoresSafeArea()
+                    
                     
                 }
                 
@@ -94,6 +119,12 @@ struct BelongingsSituationDetailView: View {
               }
         .navigationTitle(situation.title)
         .navigationBarTitleDisplayMode(.inline)
+        .sheet(isPresented: $viewModel.isPresentingBelongingsAddView) {
+            BelongingsAddView(situation:self.situation)
+                .presentationDetents([.fraction(0.2)])
+                .presentationDragIndicator(.visible)
+            
+        }
     }
     
     

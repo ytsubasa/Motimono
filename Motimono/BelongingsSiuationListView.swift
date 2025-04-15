@@ -62,7 +62,7 @@ struct BelongingsSiuationListView: View {
                     HStack {
                         Spacer()
                         Button(action: {
-                            viewModel.isPresentingAddView = true
+                            viewModel.isPresentingSituationAddView = true
                         }) {
                             Image(systemName: "plus")
                                 .font(.system(size: 24, weight: .bold))
@@ -85,7 +85,7 @@ struct BelongingsSiuationListView: View {
             
             viewModel.loadMockData()
         }
-        .sheet(isPresented: $viewModel.isPresentingAddView) {
+        .sheet(isPresented: $viewModel.isPresentingSituationAddView) {
             BelongingsSiuationAddView()
                 .presentationDetents([.fraction(0.2)])
                 .presentationDragIndicator(.visible)
