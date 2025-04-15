@@ -50,12 +50,41 @@ struct BelongingsSiuationListView: View {
                     }
                 }
                 .listStyle(.plain)
+                
+                
+                VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            viewModel.isPresentingAddView = true
+                        }) {
+                            Image(systemName: "plus")
+                                .font(.system(size: 24, weight: .bold))
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(Color.black.opacity(0.5))
+                                .clipShape(Circle())
+                                .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 3)
+                        }
+                        .padding(.bottom, 20)
+                        .padding(.trailing, 20)
+                    }
+                }
+                .ignoresSafeArea()
+                
             }
             .navigationTitle("状況別持ち物")
         }
         .onAppear{
             
             viewModel.loadMockData()
+        }
+        .sheet(isPresented: $viewModel.isPresentingAddView) {
+            BelongingsSiuationAddView()
+                .presentationDetents([.fraction(0.3)])
+                .presentationDragIndicator(.visible)
+            
         }
     }
 }

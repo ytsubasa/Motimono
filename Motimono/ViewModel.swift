@@ -16,6 +16,41 @@ class ViewModel: ObservableObject {
     @Published var belongingsSiuations : [BelongingsSituation] = []
     
     
+    
+    // MARK: - 追加ビュー処理
+    
+    
+    @Published var isPresentingAddView: Bool = false
+    
+    
+    
+    
+    // MARK: - 追加処理
+    
+    func addBelongingsSituation(title: String) {
+        let newSituation = BelongingsSituation()
+        newSituation.title = title
+        newSituation.order = belongingsSiuations.count
+        newSituation.ListBelongings = List<Belongings>() // 空の初期値でもOK
+        newSituation.lastCompletedAt = nil
+
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.add(newSituation)
+            }
+
+            // 表示用にも配列に追加
+            belongingsSiuations.append(newSituation)
+
+        } catch {
+            print("追加失敗: \(error.localizedDescription)")
+        }
+    }
+
+    
+    
+    
     func loadMockData() {
         let b1 = Belongings()
         b1.name = "財布"
