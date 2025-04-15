@@ -7,10 +7,14 @@
 
 import Foundation
 import SwiftUI
+import RealmSwift
 
 
 struct BelongingsSituationDetailView: View {
     let situation: BelongingsSituation
+    
+    
+    @State private var sortedBelongings: [Belongings] = []
 
     var preparedCount: Int {
         situation.ListBelongings.filter { $0.isPrepared }.count
@@ -22,9 +26,7 @@ struct BelongingsSituationDetailView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            // 上部に黄色の丸とカウントテキスト
-            
-            
+           
             
             GeometryReader { geometry in
                 ZStack {
@@ -69,6 +71,7 @@ struct BelongingsSituationDetailView: View {
                                 
                                 
                             }
+                            .onMove(perform: moveBelongings)
                         }
                         .listStyle(.plain)
                         
@@ -83,12 +86,35 @@ struct BelongingsSituationDetailView: View {
                 
             }
 
-            // リスト本体
           
-            
            
         }
+        .onAppear {
+                  sortedBelongings = situation.ListBelongings.sorted(by: { $0.order < $1.order })
+              }
         .navigationTitle(situation.title)
         .navigationBarTitleDisplayMode(.inline)
     }
+    
+    
+    func moveBelongings(from source: IndexSet, to destination: Int) {
+           sortedBelongings.move(fromOffsets: source, toOffset: destination)
+
+           do {
+               let realm = try Realm()
+               try realm.write {
+                   for (index, item) in sortedBelongings.enumerated() {
+                       item.order = index
+                   }
+
+                   // RealmのListに並び替えを反映（順番も）
+                   situation.ListBelongings.removeAll()
+                   situation.ListBelongings.append(objectsIn: sortedBelongings)
+               }
+           } catch {
+               print("並び替え保存失敗: \(error.localizedDescription)")
+           }
+       }
+    
+    
 }

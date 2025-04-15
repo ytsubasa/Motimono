@@ -47,8 +47,13 @@ struct BelongingsSiuationListView: View {
                             .tint(.blue)
                             
                         }
+                     
+                        
+                        
                     }
+                    .onMove(perform: viewModel.moveBelongingsSituation)
                 }
+                
                 .listStyle(.plain)
                 
                 

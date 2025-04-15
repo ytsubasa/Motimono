@@ -83,6 +83,29 @@ class ViewModel: ObservableObject {
             print("追加失敗: \(error.localizedDescription)")
         }
     }
+    
+    
+    
+    
+    
+    // MARK: - 状況別持ち物モデル並べ替え処理
+    
+    func moveBelongingsSituation(from source: IndexSet, to destination: Int) {
+        belongingsSiuations.move(fromOffsets: source, toOffset: destination)
+
+        // 並び順を Realm に保存（order を更新）
+        do {
+            let realm = try Realm()
+            try realm.write {
+                for (index, item) in belongingsSiuations.enumerated() {
+                    item.order = index
+                }
+            }
+        } catch {
+            print("順番保存失敗: \(error.localizedDescription)")
+        }
+    }
+
 
     
     
