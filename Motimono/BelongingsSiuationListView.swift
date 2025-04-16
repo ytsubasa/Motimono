@@ -85,6 +85,8 @@ struct BelongingsSiuationListView: View {
                 
             }
             .navigationTitle("状況別持ち物")
+        
+
         }
         .onAppear{
             

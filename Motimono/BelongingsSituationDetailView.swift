@@ -45,15 +45,7 @@ struct BelongingsSituationDetailView: View {
             
             GeometryReader { geometry in
                 ZStack {
-                    Circle()
-                        .fill(Color.yellow)
-                        .frame(width: geometry.size.width  , height: geometry.size.height)
-                    
-                   
-                .padding(.top, 16)
-                .offset( y: -geometry.size.height * 0.74 )
-                    
-                    
+                
                     VStack(spacing: 4) {
                         Text("\(preparedCount)/\(totalCount)")
                             .font(.title)
@@ -75,7 +67,8 @@ struct BelongingsSituationDetailView: View {
                                         .foregroundColor(item.isPrepared ? Color.gray.opacity(0.6) : .black)
                                          .strikethrough(item.isPrepared, color: .gray)
                                 }
-                                .frame(maxWidth: .infinity, alignment: .leading) // ← 横いっぱいに
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .listRowBackground(Color.clear)
                                   .contentShape(Rectangle()) // ← ここで範囲確定
                                 .onTapGesture {
                                     let wasPrepared = item.isPrepared
@@ -146,7 +139,24 @@ struct BelongingsSituationDetailView: View {
                         Spacer()
                     }
                
-                    
+                    .overlay(
+                        Group {
+                            if sortedBelongings.isEmpty {
+                                VStack {
+                                    Spacer()
+                                    Text("持ち物を追加しましょう")
+                                        .font(.title2)
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(.gray.opacity(0.8))
+                                        .multilineTextAlignment(.center)
+                                    Spacer()
+                                }
+                                .transition(.opacity)
+                            }
+                        }
+                    )
+
+
                     
                     VStack {
                         Spacer()

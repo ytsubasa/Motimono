@@ -7,16 +7,28 @@
 
 import SwiftUI
 
+
+
+
 @main
 struct MotimonoApp: App {
+    @State private var showSplash = true
     
     @StateObject var viewModel = ViewModel()
-    
-    
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(viewModel) // ← ここで注入
+            if showSplash {
+                appStartView()
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            showSplash = false
+                        }
+                    }
+            } else {
+                ContentView()
+                    .environmentObject(viewModel) // ← ここで注入
+            }
         }
     }
 }

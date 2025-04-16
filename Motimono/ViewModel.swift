@@ -21,19 +21,27 @@ class ViewModel: ObservableObject {
     
     
     init() {
-            let config = Realm.Configuration(
-                schemaVersion: 1,
-                migrationBlock: { migration, oldSchemaVersion in
-                    if oldSchemaVersion < 1 {
-                        // マイグレーション処理があればここに
-                    }
+        
+        let config = Realm.Configuration(
+            schemaVersion: 1,
+            migrationBlock: { migration, oldSchemaVersion in
+                if oldSchemaVersion < 1 {
+                    // マイグレーション処理があればここに
                 }
-            )
-            Realm.Configuration.defaultConfiguration = config
+            }
+        )
+        Realm.Configuration.defaultConfiguration = config
 
-            fetchBelongingsSituations()
+        //  初回のみサンプルデータ登録
+        if !UserDefaults.standard.bool(forKey: "didInsertInitialData") {
+            loadSampleData()
+            UserDefaults.standard.set(true, forKey: "didInsertInitialData")
         }
-    
+
+       
+        fetchBelongingsSituations()
+    }
+
     
     
     
@@ -399,48 +407,59 @@ class ViewModel: ObservableObject {
     
     
     
-    func loadMockData() {
-//        let b1 = Belongings()
-//        b1.name = "財布"
-//        b1.isPrepared = true
-//        b1.order = 0
-//
-//        let b2 = Belongings()
-//        b2.name = "鍵"
-//        b2.isPrepared = false
-//        b2.order = 1
-//
-//        let b3 = Belongings()
-//        b3.name = "スマホ"
-//        b3.isPrepared = true
-//        b3.order = 0
-//
-//        let b4 = Belongings()
-//        b4.name = "ハンカチ"
-//        b4.isPrepared = true
-//        b4.order = 1
-//
-//        let list1 = List<Belongings>()
-//        list1.append(objectsIn: [b1, b2])
-//
-//        let list2 = List<Belongings>()
-//        list2.append(objectsIn: [b3, b4])
-//
-//        let s1 = BelongingsSituation()
-//        s1.title = "出勤前チェック"
-//        s1.ListBelongings = list1
-//        s1.lastCompletedAt = Calendar.current.date(byAdding: .day, value: -1, to: Date()) // 昨日
-//        s1.order = 0
-//
-//        let s2 = BelongingsSituation()
-//        s2.title = "旅行準備"
-//        s2.ListBelongings = list2
-//        s2.lastCompletedAt = Date() // 今日
-//        s2.order = 1
-//
-//        belongingsSiuations.append(s1)
-//        belongingsSiuations.append(s2)
+    func loadSampleData() {
+        let b1 = Belongings()
+        b1.name = "財布"
+        b1.isPrepared = true
+        b1.order = 0
+
+        let b2 = Belongings()
+        b2.name = "鍵"
+        b2.isPrepared = false
+        b2.order = 1
+
+        let b3 = Belongings()
+        b3.name = "スマホ"
+        b3.isPrepared = false
+        b3.order = 0
+
+        let b4 = Belongings()
+        b4.name = "ハンカチ"
+        b4.isPrepared = true
+        b4.order = 1
+
+        let list1 = List<Belongings>()
+        list1.append(objectsIn: [b1, b2])
+
+        let list2 = List<Belongings>()
+        list2.append(objectsIn: [b3, b4])
+
+        let s1 = BelongingsSituation()
+        s1.title = "出勤前"
+        s1.ListBelongings = list1
+        s1.lastCompletedAt = Calendar.current.date(byAdding: .day, value: -1, to: Date())
+        s1.order = 0
+
+        let s2 = BelongingsSituation()
+        s2.title = "旅行準備"
+        s2.ListBelongings = list2
+        s2.lastCompletedAt = Date()
+        s2.order = 1
+
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.add(s1)
+                realm.add(s2)
+            }
+        } catch {
+            print("❌ モックデータ保存失敗: \(error.localizedDescription)")
+        }
+
+        // 表示用のローカル配列にも追加（UI描画用）
+        belongingsSiuations.append(contentsOf: [s1, s2])
     }
+
 
     
     
