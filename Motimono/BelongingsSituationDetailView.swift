@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import RealmSwift
+import UIKit
 
 
 struct BelongingsSituationDetailView: View {
@@ -27,6 +28,12 @@ struct BelongingsSituationDetailView: View {
     var totalCount: Int {
         situation.ListBelongings.count
     }
+    
+    @State private var redrawTrigger = UUID()
+    
+    @State private var animateCheckmarkID: ObjectId? = nil
+
+
 
     var body: some View {
         VStack(spacing: 0) {
@@ -57,8 +64,33 @@ struct BelongingsSituationDetailView: View {
                                 HStack {
                                     Image(systemName: item.isPrepared ? "checkmark.circle.fill" : "circle")
                                         .foregroundColor(item.isPrepared ? .green : .gray)
+                                           .scaleEffect(animateCheckmarkID == item.id ? 1.5 : 1.0)
+                                           .animation(.spring(response: 0.4, dampingFraction: 0.4), value: animateCheckmarkID)
 
                                     Text(item.name)
+                                        .foregroundColor(item.isPrepared ? Color.gray.opacity(0.6) : .black)
+                                         .strikethrough(item.isPrepared, color: .gray)
+                                }
+                                .frame(maxWidth: .infinity, alignment: .leading) // ← 横いっぱいに
+                                  .contentShape(Rectangle()) // ← ここで範囲確定
+                                .onTapGesture {
+                                    let wasPrepared = item.isPrepared
+                                    
+                                    sortedBelongings = viewModel.togglePrepared(for: item, in: situation)
+                                    
+                                    //完了から未完了へのトグル時はアニメーションさせない
+                                    if !wasPrepared {
+                                        animateCheckmarkID = item.id
+                                        
+                                        let generator = UIImpactFeedbackGenerator(style: .medium)
+                                             generator.impactOccurred()
+                                        
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                            animateCheckmarkID = nil
+                                        }
+                                    }
+                                    
+                                    redrawTrigger = UUID() // ← 再描画強制
                                 }
                                 .swipeActions(edge: .trailing) {
                                     Button("削除",systemImage: "trash") {
@@ -74,12 +106,13 @@ struct BelongingsSituationDetailView: View {
                                     .tint(.blue)
                                     
                                 }
-                                
+                                .id(redrawTrigger) // ← 各セルを UUID で再レンダリング
                                 
                             }
                             .onMove(perform: moveBelongings)
                         }
                         .listStyle(.plain)
+                      
                         
                         
                         Spacer()
@@ -116,6 +149,7 @@ struct BelongingsSituationDetailView: View {
           
            
         }
+        
         .onAppear {
                   sortedBelongings = situation.ListBelongings.sorted(by: { $0.order < $1.order })
               }

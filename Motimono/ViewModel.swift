@@ -233,6 +233,45 @@ class ViewModel: ObservableObject {
     }
 
 
+    
+    
+    
+    
+    // MARK: - 持ち物k準備完了トグル処理
+    
+    
+    
+    
+    func togglePrepared(for belonging: Belongings, in situation: BelongingsSituation) -> [Belongings] {
+        do {
+            let realm = try Realm()
+
+            guard let managed = realm.object(ofType: Belongings.self, forPrimaryKey: belonging.id) else {
+                print("⚠️ 対象が Realm に存在しない")
+                return situation.ListBelongings.sorted(by: { $0.order < $1.order }).map { $0 }
+            }
+
+            try realm.write {
+                managed.isPrepared.toggle()
+            }
+
+            print("🔁 トグル完了: \(managed.name) → isPrepared: \(managed.isPrepared)")
+
+            // 再描画用に新しい参照配列を返す
+            return situation.ListBelongings.sorted(by: { $0.order < $1.order }).map { $0 }
+
+        } catch {
+            print("❌ トグル失敗: \(error.localizedDescription)")
+            return situation.ListBelongings.sorted(by: { $0.order < $1.order }).map { $0 }
+        }
+    }
+
+
+    
+    
+    
+    
+    
 
     
     // MARK: - 状況削除処理
