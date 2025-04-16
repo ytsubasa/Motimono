@@ -130,23 +130,55 @@ class ViewModel: ObservableObject {
     
     
     
+    
+    // MARK: -  編集持ち物
+    
+    @Published var editingBelongings: Belongings?
+    
+    
     // MARK: - 持ち物追加処理
     
     
-    func addBelonging(to situation: BelongingsSituation, name: String) {
-        let newBelonging = Belongings()
-        newBelonging.name = name
-        newBelonging.order = situation.ListBelongings.count
-
+    func addBelonging(
+        to situation: BelongingsSituation,
+        name: String,
+        editingItem: Belongings? = nil,
+        parent: BelongingsSituation
+    ) {
         do {
             let realm = try Realm()
-            try realm.write {
-                situation.ListBelongings.append(newBelonging)
+
+            if let editingItem = editingItem {
+                // ✅ Realm上の最新の Belongings を取得して title を更新
+                guard let managedBelonging = realm.object(ofType: Belongings.self, forPrimaryKey: editingItem.id) else {
+                    print("⚠️ 編集対象が Realm に存在しません")
+                    return
+                }
+
+                try realm.write {
+                    managedBelonging.name = name
+                }
+
+                print("✏️ 持ち物の名前を更新しました: \(name) (id: \(managedBelonging.id))")
+
+            } else {
+                // ✅ 新規追加処理
+                let newBelonging = Belongings()
+                newBelonging.name = name
+                newBelonging.order = situation.ListBelongings.count
+
+                try realm.write {
+                    situation.ListBelongings.append(newBelonging)
+                }
+
+                print("🆕 持ち物を追加しました: \(name) (id: \(newBelonging.id))")
             }
+
         } catch {
-            print("持ち物の追加に失敗: \(error.localizedDescription)")
+            print("❌ 持ち物の追加・編集に失敗: \(error.localizedDescription)")
         }
     }
+
 
     
     

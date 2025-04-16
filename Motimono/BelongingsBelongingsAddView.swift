@@ -11,7 +11,8 @@ struct BelongingsAddView: View {
     @EnvironmentObject var viewModel: ViewModel
     
     let situation: BelongingsSituation
-
+    var editingItem: Belongings? = nil
+    
     @State private var newText: String = ""
     @FocusState private var isFocused: Bool
 
@@ -29,11 +30,11 @@ struct BelongingsAddView: View {
 
             Button(action: {
                 guard !newText.trimmingCharacters(in: .whitespaces).isEmpty else { return }
-                viewModel.addBelonging(to: situation, name: newText)
+                viewModel.addBelonging(to: situation, name: newText,editingItem: self.editingItem,parent: self.situation)
                   newText = ""
                   viewModel.isPresentingBelongingsAddView = false
             }) {
-                Text("追加")
+                Text(editingItem != nil ? "更新" : "追加")
                     .font(.headline)
                     .foregroundColor(isDisabled ? Color.white.opacity(0.4) : Color.white)
                     .padding()
@@ -50,6 +51,9 @@ struct BelongingsAddView: View {
         .padding(.top, 40)
         .onAppear {
             isFocused = true
+            if let item = editingItem {
+                newText = item.name
+               }
         }
     }
 }

@@ -68,7 +68,8 @@ struct BelongingsSituationDetailView: View {
                                     .tint(.red)
                                     
                                     Button("編集",systemImage: "pencil") {
-                                        // 編集処理（モーダル表示・画面遷移など）
+                                        viewModel.editingBelongings = item
+                                        viewModel.isPresentingBelongingsAddView = true
                                     }
                                     .tint(.blue)
                                     
@@ -121,10 +122,15 @@ struct BelongingsSituationDetailView: View {
         .navigationTitle(situation.title)
         .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $viewModel.isPresentingBelongingsAddView) {
-            BelongingsAddView(situation:self.situation)
+            BelongingsAddView(situation:self.situation,editingItem: viewModel.editingBelongings)
                 .presentationDetents([.fraction(0.2)])
                 .presentationDragIndicator(.visible)
                 .presentationCornerRadius(30)
+                .onDisappear {
+                          // ✅ モーダルが閉じられたタイミングで編集状態をクリア
+                    print("モーダルが閉じられました")
+                          viewModel.editingBelongings = nil
+                      }
             
         }
     }
