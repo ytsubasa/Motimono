@@ -32,6 +32,10 @@ struct BelongingsSituationDetailView: View {
     @State private var redrawTrigger = UUID()
     
     @State private var animateCheckmarkID: ObjectId? = nil
+    
+    @State private var showCompletionOverlay = false
+
+    @Environment(\.dismiss) var dismiss
 
 
 
@@ -88,6 +92,30 @@ struct BelongingsSituationDetailView: View {
                                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                                             animateCheckmarkID = nil
                                         }
+                                        
+                                        
+                                        //全て完了時の処理
+                                        let allDone = sortedBelongings.allSatisfy { $0.isPrepared }
+                                         if allDone {
+                                             
+                                             viewModel.completeAndResetBelongings(for: situation)
+                                             
+                                             let heavyGen = UIImpactFeedbackGenerator(style: .heavy)
+                                             heavyGen.impactOccurred()
+                                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                                                 heavyGen.impactOccurred()
+                                             }
+
+                                             // ✅ 成功アニメーション表示
+                                             showCompletionOverlay = true
+
+                                             // ✅ 1秒後に画面を閉じる
+                                             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                                 dismiss()
+                                             }
+                                         }
+                                        
+                                        
                                     }
                                     
                                     redrawTrigger = UUID() // ← 再描画強制
@@ -149,6 +177,33 @@ struct BelongingsSituationDetailView: View {
           
            
         }
+        .overlay(
+            ZStack {
+                if showCompletionOverlay {
+                    Color.black.opacity(0.4).ignoresSafeArea()
+
+                    VStack(spacing: 12) {
+                        Image(systemName: "checkmark.seal.fill")
+                            .resizable()
+                            .frame(width: 60, height: 60)
+                            .foregroundColor(.green)
+                            .transition(.scale.combined(with: .opacity))
+
+                        Text("すべて完了！")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                    }
+                    .padding()
+                    .background(Color.green.opacity(0.5))
+                    .cornerRadius(20)
+                    .shadow(radius: 10)
+                    .transition(.opacity)
+                }
+            }
+        )
+
+        
+        
         
         .onAppear {
                   sortedBelongings = situation.ListBelongings.sorted(by: { $0.order < $1.order })

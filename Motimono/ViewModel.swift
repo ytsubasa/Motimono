@@ -269,7 +269,40 @@ class ViewModel: ObservableObject {
 
     
     
+    // MARK: - 持ち物全完了処理
     
+    func completeAndResetBelongings(for situation: BelongingsSituation) {
+        do {
+            let realm = try Realm()
+
+            // 対象の Realm オブジェクトを取得
+            guard let managed = realm.object(ofType: BelongingsSituation.self, forPrimaryKey: situation.id) else {
+                print("⚠️ 指定の持ち物状況が見つかりません")
+                return
+            }
+
+            try realm.write {
+                // 1️⃣ 完了時間を記録
+                managed.lastCompletedAt = Date()
+
+                // 2️⃣ 全ての isPrepared を false にリセット
+                for belonging in managed.ListBelongings {
+                    belonging.isPrepared = false
+                }
+            }
+
+            print("✅ 完了処理とリセット完了：\(managed.title)")
+
+            // 3️⃣ SwiftUIの配列も更新
+            if let index = belongingsSiuations.firstIndex(where: { $0.id == situation.id }) {
+                belongingsSiuations[index] = managed
+            }
+
+        } catch {
+            print("❌ 完了処理エラー: \(error.localizedDescription)")
+        }
+    }
+
     
     
 
