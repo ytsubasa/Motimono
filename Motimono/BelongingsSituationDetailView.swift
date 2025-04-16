@@ -217,7 +217,7 @@ struct BelongingsSituationDetailView: View {
         
         .onAppear {
                   sortedBelongings = situation.ListBelongings.sorted(by: { $0.order < $1.order })
-              }
+        }
         .navigationTitle(situation.title)
         .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $viewModel.isPresentingBelongingsAddView) {
@@ -226,10 +226,11 @@ struct BelongingsSituationDetailView: View {
                 .presentationDragIndicator(.visible)
                 .presentationCornerRadius(30)
                 .onDisappear {
-                          // ✅ モーダルが閉じられたタイミングで編集状態をクリア
-                    print("モーダルが閉じられました")
-                          viewModel.editingBelongings = nil
-                      }
+                    // ✅ モーダルが閉じられたタイミングで編集状態をクリア
+                    viewModel.editingBelongings = nil
+                    sortedBelongings = situation.ListBelongings.sorted(by: { $0.order < $1.order })
+                    redrawTrigger = UUID()
+                }
             
         }
     }
