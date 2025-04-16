@@ -46,7 +46,8 @@ struct BelongingsSiuationListView: View {
                             .tint(.red)
                             
                             Button("編集",systemImage: "pencil") {
-                                // 編集処理（モーダル表示・画面遷移など）
+                                viewModel.editingSituation = situation
+                                viewModel.isPresentingSituationAddView = true
                             }
                             .tint(.blue)
                             
@@ -92,10 +93,15 @@ struct BelongingsSiuationListView: View {
                }
         }
         .sheet(isPresented: $viewModel.isPresentingSituationAddView) {
-            BelongingsSiuationAddView()
+            BelongingsSiuationAddView(editingItem:viewModel.editingSituation)
                 .presentationDetents([.fraction(0.2)])
                 .presentationDragIndicator(.visible)
                 .presentationCornerRadius(30)
+                .onDisappear {
+                          // ✅ モーダルが閉じられたタイミングで編集状態をクリア
+                    print("モーダルが閉じられました")
+                          viewModel.editingSituation = nil
+                      }
             
         }
     }

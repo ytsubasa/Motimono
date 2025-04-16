@@ -10,6 +10,8 @@ import SwiftUI
 
 struct BelongingsSiuationAddView: View {
     @EnvironmentObject var viewModel: ViewModel
+    
+    var editingItem: BelongingsSituation? = nil
 
     @State private var newText: String = ""
     @FocusState private var isFocused: Bool
@@ -28,12 +30,12 @@ struct BelongingsSiuationAddView: View {
 
             Button(action: {
                 guard !newText.trimmingCharacters(in: .whitespaces).isEmpty else { return }
-                  viewModel.addBelongingsSituation(title: newText)
+                viewModel.addBelongingsSituation(title: newText,editingItem: self.editingItem)
                   newText = ""
                   viewModel.isPresentingSituationAddView = false
             }) {
-                Text("追加")
-                    .font(.headline)
+                Text(editingItem != nil ? "更新" : "追加")
+                    .font(.title3)
                     .foregroundColor(isDisabled ? Color.white.opacity(0.4) : Color.white)
                     .padding()
                     .frame(maxWidth: .infinity)
@@ -49,6 +51,9 @@ struct BelongingsSiuationAddView: View {
         .padding(.top, 40)
         .onAppear {
             isFocused = true
+            if let item = editingItem {
+                   newText = item.title
+               }
         }
     }
 }

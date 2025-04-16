@@ -70,30 +70,57 @@ class ViewModel: ObservableObject {
     
     
     
+    
+    
+    // MARK: -  編集状況保持
+    
+    @Published var editingSituation: BelongingsSituation?
+
+    
+    
+    
+    
     // MARK: - 状況追加処理
     
     
     
-    func addBelongingsSituation(title: String) {
-        let newSituation = BelongingsSituation()
-        newSituation.title = title
-        newSituation.order = belongingsSiuations.count
-        newSituation.ListBelongings = List<Belongings>() // 空の初期値でもOK
-        newSituation.lastCompletedAt = nil
-
+    func addBelongingsSituation(title: String, editingItem: BelongingsSituation? = nil) {
         do {
             let realm = try Realm()
-            try realm.write {
-                realm.add(newSituation)
+
+            if let item = editingItem {
+                // ✅ 編集処理
+                try realm.write {
+                    item.title = title
+                }
+
+                // ✅ 表示配列を更新
+                if let index = belongingsSiuations.firstIndex(where: { $0.id == item.id }) {
+                    belongingsSiuations[index] = item
+                    print("✏️ 編集完了: \(title) (id: \(item.id))")
+                }
+
+            } else {
+                // ✅ 新規追加処理
+                let newSituation = BelongingsSituation()
+                newSituation.title = title
+                newSituation.order = belongingsSiuations.count
+                newSituation.ListBelongings = List<Belongings>()
+                newSituation.lastCompletedAt = nil
+
+                try realm.write {
+                    realm.add(newSituation)
+                }
+
+                belongingsSiuations.append(newSituation)
+                print("🆕 追加完了: \(title) (id: \(newSituation.id))")
             }
 
-            // 表示用にも配列に追加
-            belongingsSiuations.append(newSituation)
-
         } catch {
-            print("追加失敗: \(error.localizedDescription)")
+            print("❌ 追加・編集失敗: \(error.localizedDescription)")
         }
     }
+
     
     
     // MARK: - 持ち物追加ビュー処理
