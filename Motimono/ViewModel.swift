@@ -149,7 +149,7 @@ class ViewModel: ObservableObject {
             let realm = try Realm()
 
             if let editingItem = editingItem {
-                // ✅ Realm上の最新の Belongings を取得して title を更新
+                // ✅ 編集処理
                 guard let managedBelonging = realm.object(ofType: Belongings.self, forPrimaryKey: editingItem.id) else {
                     print("⚠️ 編集対象が Realm に存在しません")
                     return
@@ -172,6 +172,11 @@ class ViewModel: ObservableObject {
                 }
 
                 print("🆕 持ち物を追加しました: \(name) (id: \(newBelonging.id))")
+            }
+
+            // ✅ UI更新用: belongingsSiuationsを更新
+            if let index = belongingsSiuations.firstIndex(where: { $0.id == parent.id }) {
+                belongingsSiuations[index] = parent // Realmで変更された参照を再代入
             }
 
         } catch {
@@ -200,15 +205,19 @@ class ViewModel: ObservableObject {
                 return situation.ListBelongings.sorted(by: { $0.order < $1.order })
             }
 
-            // ✅ リストから対象を削除（削除前に配列を更新）
+            // ✅ リストから対象を削除
             if let index = managedSituation.ListBelongings.firstIndex(where: { $0.id == deletedId }) {
                 try realm.write {
                     managedSituation.ListBelongings.remove(at: index)
                 }
             }
 
-            // ✅ Realm本体から削除する処理は0.5秒遅らせて安全性を確保
-            // 理由：削除直後にSwiftUI Viewが無効オブジェクトにアクセスしてクラッシュするのを防ぐため
+            // ✅ belongingsSiuations の該当要素も再代入（UI更新）
+            if let index = belongingsSiuations.firstIndex(where: { $0.id == situation.id }) {
+                belongingsSiuations[index] = managedSituation
+            }
+
+            // ✅ Realm本体からの削除を0.5秒遅延してクラッシュ防止
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 do {
                     let realm = try Realm()
@@ -223,7 +232,7 @@ class ViewModel: ObservableObject {
                 }
             }
 
-            // ✅ 表示用配列（order順ソート済み）を返す
+            // ✅ UI表示用にソート済み配列を返す
             return managedSituation.ListBelongings.sorted(by: { $0.order < $1.order })
 
         } catch {
@@ -231,6 +240,7 @@ class ViewModel: ObservableObject {
             return situation.ListBelongings.sorted(by: { $0.order < $1.order })
         }
     }
+
 
 
     
@@ -257,7 +267,12 @@ class ViewModel: ObservableObject {
 
             print("🔁 トグル完了: \(managed.name) → isPrepared: \(managed.isPrepared)")
 
-            // 再描画用に新しい参照配列を返す
+            // ✅ SwiftUI UI更新のため、該当のBelongingsSituationを再代入
+            if let index = belongingsSiuations.firstIndex(where: { $0.id == situation.id }) {
+                belongingsSiuations[index] = situation
+            }
+
+            // ✅ 再描画用にソートした配列を返す（コピーで参照切り離し）
             return situation.ListBelongings.sorted(by: { $0.order < $1.order }).map { $0 }
 
         } catch {
@@ -265,6 +280,7 @@ class ViewModel: ObservableObject {
             return situation.ListBelongings.sorted(by: { $0.order < $1.order }).map { $0 }
         }
     }
+
 
 
     
