@@ -53,7 +53,7 @@ struct BelongingsSituationDetailView: View {
                         
                         
                         List {
-                            ForEach(situation.ListBelongings, id: \.id) { item in
+                            ForEach(sortedBelongings, id: \.id) { item in
                                 HStack {
                                     Image(systemName: item.isPrepared ? "checkmark.circle.fill" : "circle")
                                         .foregroundColor(item.isPrepared ? .green : .gray)
@@ -62,7 +62,8 @@ struct BelongingsSituationDetailView: View {
                                 }
                                 .swipeActions(edge: .trailing) {
                                     Button("削除",systemImage: "trash") {
-                                        // 編集処理（モーダル表示・画面遷移など）
+                                        
+                                        sortedBelongings = viewModel.deleteBelonging(item, from: situation)
                                     }
                                     .tint(.red)
                                     

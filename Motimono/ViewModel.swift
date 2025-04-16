@@ -150,6 +150,56 @@ class ViewModel: ObservableObject {
 
     
     
+    
+    // MARK: - 持ち物削除処理
+    
+    
+    func deleteBelonging(_ belonging: Belongings, from situation: BelongingsSituation) -> [Belongings] {
+        let deletedId = belonging.id
+        let deletedName = belonging.name
+
+        do {
+            let realm = try Realm()
+
+            // Realmから管理中の最新オブジェクトを取得
+            guard let managedSituation = realm.object(ofType: BelongingsSituation.self, forPrimaryKey: situation.id),
+                  let managedBelonging = realm.object(ofType: Belongings.self, forPrimaryKey: deletedId) else {
+                print("⚠️ 対象が見つかりません")
+                return situation.ListBelongings.sorted(by: { $0.order < $1.order })
+            }
+
+            // ✅ リストから対象を削除（削除前に配列を更新）
+            if let index = managedSituation.ListBelongings.firstIndex(where: { $0.id == deletedId }) {
+                try realm.write {
+                    managedSituation.ListBelongings.remove(at: index)
+                }
+            }
+
+            // ✅ Realm本体から削除する処理は0.5秒遅らせて安全性を確保
+            // 理由：削除直後にSwiftUI Viewが無効オブジェクトにアクセスしてクラッシュするのを防ぐため
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                do {
+                    let realm = try Realm()
+                    if let toDelete = realm.object(ofType: Belongings.self, forPrimaryKey: deletedId) {
+                        try realm.write {
+                            realm.delete(toDelete)
+                        }
+                        print("🗑️ 削除完了（遅延後）: \(deletedName) (id: \(deletedId))")
+                    }
+                } catch {
+                    print("❌ 遅延削除失敗: \(error.localizedDescription)")
+                }
+            }
+
+            // ✅ 表示用配列（order順ソート済み）を返す
+            return managedSituation.ListBelongings.sorted(by: { $0.order < $1.order })
+
+        } catch {
+            print("❌ 削除前処理失敗: \(error.localizedDescription)")
+            return situation.ListBelongings.sorted(by: { $0.order < $1.order })
+        }
+    }
+
 
 
     
