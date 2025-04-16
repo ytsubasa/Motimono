@@ -126,8 +126,52 @@ class ViewModel: ObservableObject {
 
 
     
+    // MARK: - 状況削除処理
     
-    
+    func deleteBelongingsSituation(_ situation: BelongingsSituation) {
+        let deletedId = situation.id
+        let deletedTitle = situation.title
+        
+        let updatedArray = belongingsSiuations.filter { $0.id != deletedId }
+        
+        belongingsSiuations = updatedArray
+        
+        print("🗑️ 削除リクエスト: \(deletedTitle) (id: \(deletedId))")
+        print("✅ Realmから削除完了: \(deletedTitle) (id: \(deletedId))")
+        
+        print("📋 削除後の一覧:")
+        for item in belongingsSiuations {
+            print("・\(item.title) → order: \(item.order), id: \(item.id)")
+        }
+        
+        let delay = 0.5
+        
+        /// ビュー側の参照切れを待ってから Realm オブジェクトを削除（直後だとクラッシュするため）
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+            
+            do {
+                let realm = try Realm()
+                
+                guard let managed = realm.object(ofType: BelongingsSituation.self, forPrimaryKey: deletedId) else {
+                    print("⚠️ 対象が Realm に存在しない")
+                    return
+                }
+                
+                
+                try realm.write {
+                    realm.delete(managed)
+                }
+                
+            } catch {
+                print("❌ 削除失敗: \(error.localizedDescription)")
+            }
+            
+        }
+    }
+
+
+
     
     
     // MARK: - 状況別持ち物モデル並べ替え処理

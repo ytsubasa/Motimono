@@ -41,7 +41,7 @@ struct BelongingsSiuationListView: View {
                         .listRowInsets(EdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 8))
                         .swipeActions(edge: .trailing) {
                             Button("削除",systemImage: "trash") {
-                                // 編集処理（モーダル表示・画面遷移など）
+                                viewModel.deleteBelongingsSituation(situation)
                             }
                             .tint(.red)
                             
