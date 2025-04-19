@@ -44,9 +44,23 @@
 		D6BAF7D8F8BF6B7E82B828D7 /* Pods-Motimono-MotimonoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Motimono-MotimonoUITests.release.xcconfig"; path = "Target Support Files/Pods-Motimono-MotimonoUITests/Pods-Motimono-MotimonoUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		B96EBBC32DAF993200663724 /* Exceptions for "Motimono" folder in "Motimono" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Info-Dev.plist",
+				"Info-Production.plist",
+			);
+			target = B96EBB062DAD1E1D00663724 /* Motimono */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		B96EBB092DAD1E1D00663724 /* Motimono */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				B96EBBC32DAF993200663724 /* Exceptions for "Motimono" folder in "Motimono" target */,
+			);
 			path = Motimono;
 			sourceTree = "<group>";
 		};
@@ -545,6 +559,7 @@
 				DEVELOPMENT_TEAM = R4TS3KWL5W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Motimono/Info-Production.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Motimono;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -576,6 +591,7 @@
 				DEVELOPMENT_TEAM = R4TS3KWL5W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Motimono/Info-Production.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Motimono;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
